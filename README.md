@@ -13,7 +13,7 @@ $ bun install https://github.com/apacheli/passgen.js
 With Deno:
 
 ```js
-import * as passgen from "https://github.com/apacheli/passgen/raw/master/lib.ts";
+import * as passgen from "hhttps://github.com/apacheli/passgen.js/raw/refs/heads/master/lib.ts";
 ```
 
 ## Example
@@ -59,7 +59,7 @@ Generate a password. The password is guaranteed to include a lowercase letter, a
 
 ### `highlightPassword(password: string): string`
 
-> [!WARN]
+> [!WARNING]
 > Use for debugging purposes only.
 
 Highlight letters, digits, and symbols in a password using ANSI colors.
