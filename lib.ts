@@ -10,9 +10,9 @@ const CHARACTERS_ALL = CHARACTERS_ALPHABET + CharacterSet.Digits + CharacterSet.
 // const ASCII_ALL = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~";
 
 const MIN_LEN = 4;
-const MAX_LEN = 256;
+const MAX_LEN = 65536;
 
-const bytes = new Uint8Array(256);
+const bytes = new Uint16Array(256);
 let bytesIndex = bytes.length;
 
 function getRandomValue() {
@@ -90,7 +90,7 @@ function highlightPassword(pw: string) {
     let x, y;
     for (let i = 0; i < pw.length; i++) {
         const char = pw[i];
-        x = highlightTable[char] ?? "36";
+        x = highlightTable[char] ?? "31";
         if (x !== y) {
             str += `\x1b[${x}m`;
             y = x;
@@ -101,6 +101,7 @@ function highlightPassword(pw: string) {
 }
 
 export {
+    // CHARACTERS_ALPHABET,
     CHARACTERS_ALL,
     // ASCII_ALL,
     CharacterSet,
