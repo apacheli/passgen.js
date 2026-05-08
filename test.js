@@ -1,4 +1,4 @@
-import { generatePassword, highlightPassword } from "./lib.ts";
+import { generatePassword, getRandomValue, highlightPassword } from "./lib.ts";
 import { generatePassphrase } from "./passphrase.ts";
 
 const password = generatePassword(16);

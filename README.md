@@ -45,11 +45,11 @@ Your generated passphrase is: dreamboat-decoy-aspire-reach-ground
 - `getRandomString(len, charset)`
 - `generatePassword(len)`
 - `highlightPassword(password)`
-- `generatePassphrase(len, separator)`
+- `generatePassphrase(len, separator, capitalize)`
 
 ### `getRandomValue(): number`
 
-Get a random cryptographically secure value from `0` to `255`.
+Get a random cryptographically secure value from `0` to `65_536`.
 
 ```js
 console.log(getRandomValue());
@@ -59,10 +59,10 @@ console.log(getRandomValue());
 
 Get a random cryptographically secure integer.
 
-- **`max`**: The maximum number up to `255`.
+- **`max`**: The maximum number up to `65_536`.
 
 ```js
-console.log(getRandomInt(100)); // 0-99
+console.log(getRandomInt(100)); // 0-65_535
 ```
 
 ### `getRandomIndex(indexable)`
@@ -92,9 +92,10 @@ console.log(getRandomString(4, CharacterSet.Digits));
 
 ### `generatePassword(len: number): string`
 
-Generate a password. The password is guaranteed to include a lowercase letter, an uppercase letter, a digit, and a symbol.
+Generate a password. The password is guaranteed to include a lowercase letter,
+an uppercase letter, a digit, and a symbol.
 
-- `len`: The length of the password. `16` or more characters is recommended.
+- **`len`**: The length of the password. `16` or more characters is recommended.
 
 ```js
 const password = generatePassword(16);
@@ -119,15 +120,18 @@ console.log(highlightPassword(password));
 
 Generate a passphrase.
 
-- **`len`**: The number of words to include into the passphrase. `5` or more words is recommended.
+- **`len`**: The number of words to include into the passphrase. `5` or more
+  words is recommended.
 - **`separator`**: Separator to join the words.
+- **`capitalize`**: Capitalize the first letter of each word.
 
 ```js
-const passphrase = generatePassphrase(5, "-");
+const passphrase = generatePassphrase(5, "-", true);
 ```
 
 ## License
 
 [Apache License](LICENSE.txt)
 
-- Credits to EFF for providing the passphrase word list. - https://www.eff.org/dice
+- Credits to EFF for providing the passphrase word list. -
+  https://www.eff.org/dice

@@ -7,7 +7,7 @@ const CharacterSet = {
 
 const CHARACTERS_ALPHABET = CharacterSet.AlphabetLower + CharacterSet.AlphabetUpper;
 const CHARACTERS_ALL = CHARACTERS_ALPHABET + CharacterSet.Digits + CharacterSet.Symbols;
-// const ASCII_ALL = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~";
+const ASCII_ALL = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~";
 
 const MIN_LEN = 4;
 const MAX_LEN = 65536;
@@ -32,7 +32,12 @@ function getRandomInt(max: number) {
     return int % max;
 }
 
-function getRandomIndex(indexable) {
+interface Indexable<T> {
+    [K: number]: T;
+    length: number;
+};
+
+function getRandomIndex<T>(indexable: Indexable<T>) {
     return indexable[getRandomInt(indexable.length)];
 }
 
@@ -74,7 +79,7 @@ function generatePassword(len = 16) {
     return pw.join("");
 }
 
-const highlightTable = {};
+const highlightTable: Record<string, string> = {};
 for (let i = 0; i < CharacterSet.Digits.length; i++) {
     highlightTable[CharacterSet.Digits[i]] = "34";
 }
@@ -101,9 +106,9 @@ function highlightPassword(pw: string) {
 }
 
 export {
-    // CHARACTERS_ALPHABET,
+    CHARACTERS_ALPHABET,
     CHARACTERS_ALL,
-    // ASCII_ALL,
+    ASCII_ALL,
     CharacterSet,
     getRandomValue,
     getRandomInt,
