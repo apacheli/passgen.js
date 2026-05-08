@@ -7,6 +7,7 @@ const words = (await Bun.file("./words.txt").text()).split(/\r?\n/);
  *
  * @param len The number of words to include into the passphrase. `5` or more words is recommended.
  * @param separator Separator to join the words.
+ * @param capitalize Capitalize the first letter of each word.
  */
 function generatePassphrase(len = 5, separator = "-", capitalize = false) {
     const arr = new Array(len);

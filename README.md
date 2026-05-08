@@ -65,7 +65,7 @@ Get a random cryptographically secure integer.
 console.log(getRandomInt(100)); // 0-65_535
 ```
 
-### `getRandomIndex(indexable)`
+### `getRandomIndex(indexable<T>): T`
 
 Index something using a cryptographically secure integer.
 
@@ -116,7 +116,7 @@ const password = generatePassword(16);
 console.log(highlightPassword(password));
 ```
 
-### `generatePassphrase(len: number, separator: string): string`
+### `generatePassphrase(len: number, separator: string, capitalize: boolean): string`
 
 Generate a passphrase.
 
